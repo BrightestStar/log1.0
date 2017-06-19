@@ -1,13 +1,16 @@
 <h1>XXX的博客</h1>
-<hr>
 <div class="page-header">
     <h3>
         <%= @log.title %>
     </h3>
 </div>
-<br>
-<div class="page-header">
-    <h4>
-        <%= @log.body %>
-    </h4>
+<h4>
+   <%= @log.body %>
+</h4>
+
+<% if @log.user == current_user %>
+<div class="btn-group">
+    <%= link_to 'Edit', edit_log_path(@log), class: "btn btn-default" %>
+    <%= link_to 'Destroy', @log, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
 </div>
+<% end %>

@@ -2,22 +2,15 @@
 <html>
     <head>
         <title>Log</title>
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         <%= csrf_meta_tags %>
+
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     </head>
     <body>
         <header class="navbar navbar-default" role="navigation">
-            <div class="navbar-inner">
-                <div class="container">
-                    <div id="logo" class="navbar-brand"><%= link_to "LOG", root_path %></div>
-                    <nav class="collapse navbar-collapse navbar-ex1-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><%= link_to 'Submit log', new_log_path %></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+            <%= render "common/navbar" %>
         </header>
 
         <div id="main_content" class="container">
@@ -29,6 +22,8 @@
                 <%= yield %>
             </div>
         </div>
+
+        <%= render "common/footer" %>
 
     </body>
 </html>

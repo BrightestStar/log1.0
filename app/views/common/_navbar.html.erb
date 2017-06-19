@@ -1,0 +1,20 @@
+<div class="navbar-inner">
+    <div class="container">
+        <div id="logo" class="navbar-brand"><%= link_to "LOG", root_path %></div>
+        <nav class="collapse navbar-collapse navbar-ex1-collapse">
+
+            <% if user_signed_in? %>
+            <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to '新增 Log', new_log_path %></li>
+                <li><%= link_to '个人信息', edit_user_registration_path %></li>
+                <li><%= link_to '退出登录', destroy_user_session_path, :method=> :delete %></li>
+            </ul>
+        <% else %>
+            <ul class="nav navbar-nav pull-right">
+                <li><%= link_to '注册', new_user_registration_path %></li>
+                <li><%= link_to '登录', new_user_session_path %></li>
+            </ul>
+            <% end %>
+        </nav>
+    </div>
+</div>
