@@ -1,1 +1,13 @@
-Hi
+<% @logs.each do |log| %>
+<div class="link row clearfix">
+
+	<table>
+		<tbody>
+			<ul>
+				<h2><%= link_to log.title, log %></h2>
+				<br>
+				<p><%= log.body %></p>
+			</ul>
+		</table>
+	</div>
+	<% end %>
