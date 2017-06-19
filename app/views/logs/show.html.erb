@@ -4,13 +4,14 @@
         <%= @log.title %>
     </h3>
 </div>
-<h4>
-   <%= @log.body %>
-</h4>
-
 <% if @log.user == current_user %>
-<div class="btn-group">
+<div class="btn-group pull-right">
     <%= link_to 'Edit', edit_log_path(@log), class: "btn btn-default" %>
     <%= link_to 'Destroy', @log, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
 </div>
+<h4>
+    
+    <%= @log.body %>
+    </h4>
+
 <% end %>

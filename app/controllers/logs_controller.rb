@@ -2,7 +2,12 @@ class LogsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @logs = Log.all
+    if @user =current_user
+      @logs = Log.all
+    else
+      @logs = Log.where(:is_hidden => true)
+    end
+
   end
 
   def new
@@ -46,7 +51,7 @@ class LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:title, :body)
+    params.require(:log).permit(:title, :body, :is_hidden)
   end
 
 end
