@@ -1,0 +1,15 @@
+<%= div_for(comment) do %>
+<div class="comments_wrapper clearfix">
+    <div class="btn-group pull-right">
+        <% if comment.user == current_user %>
+        <%= link_to '删除', log_comment_path(comment.log, comment), method: :delete, data: { confirm: 'Are you sure?' },
+          class: "btn-sm btn-default" %>
+        <% end %>
+    </div>
+
+    <div class="pull-left">
+        <%= comment.user.email %>:<%= comment.body %></p>
+    </div>
+
+</div>
+<% end %>

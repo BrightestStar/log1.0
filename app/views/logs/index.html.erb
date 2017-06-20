@@ -7,7 +7,28 @@
 				<h2><%= link_to log.title, log %></h2>
 				<br>
 				<p><%= log.body %></p>
+				<br>
+				<h5>
+					<%= log.comments.count %>
+					Commments
+				</h5>
 			</ul>
+
+			<%= simple_form_for [Log, Comment.new] do |f| %>
+
+			<div class="leftmargin">
+
+				<div class="pull-right">
+					<%= link_to '去评论', log, class: "btn btn-sm  btn-danger" %>
+				</div>
+				<br><br>
+
+				<div class="comments">
+					<%= render :partial => log.comments %>
+				</div>
+			</div>
 		</table>
 	</div>
+
+	<% end %>
 	<% end %>
